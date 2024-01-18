@@ -1,27 +1,29 @@
-name: Python Application
+name: Python application
 
 on:
   push:
-    branches: ['main']
-    path-ignore:
-      - 'README.md'
+    branches: [ "main" ]
+    paths-ignore:
+        - 'README.md'  
   pull_request:
-    branches: ['main']
-    path-ignore:
-      - 'README.md'
+    branches: [ "main" ]
+    paths-ignore:
+        - 'README.md'  
 
-permissions;
-  content: read
+
+permissions:
+  contents: read
 
 jobs:
   build:
+
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, window-latest]
+        os: [ubuntu-latest, windows-latest] 
         python-version: ["3.8", "3.9"]
 
-    steps: 
+    steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
