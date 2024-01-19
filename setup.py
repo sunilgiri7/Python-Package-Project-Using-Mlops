@@ -1,13 +1,12 @@
 from setuptools import find_packages, setup
 
-with open("README.md", 'r', encoding='utf-8') as f:
+with open("README.md", "r", encoding="utf-8") as f:
     long_description = f.read()
 
-__version__ = '0.0.4'
-REPO_NAME = "mongodbconnectorpkg"
+__version__ = "0.0.4"
 PKG_NAME = "Mongo-Connect"
 AUTHOR_USERNAME = "sunilgiri"
-AUTHOR_EMAIL = 'seungiri841@gmail.com'
+AUTHOR_EMAIL = "seungiri841@gmail.com"
 
 # Read requirements from requirements_dev.txt
 with open("requirements_dev.txt", "r") as f:
@@ -22,9 +21,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/sunilgiri7/your-correct-repo-name",
-    project_urls={
-        "Bug Tracker": "https://github.com/sunilgiri7/your-correct-repo-name/issues",
-    },
+    project_urls={"Bug Tracker": "https://github.com/sunilgiri7/your-correct-repo-name/issues"},
     license="MIT",
     package_dir={"": "src"},
     packages=find_packages(where="src"),
