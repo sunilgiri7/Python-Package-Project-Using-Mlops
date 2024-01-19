@@ -8,10 +8,6 @@ PKG_NAME = "Mongo-Connect"
 AUTHOR_USERNAME = "sunilgiri"
 AUTHOR_EMAIL = "seungiri841@gmail.com"
 
-# Read requirements from requirements_dev.txt
-with open("requirements_dev.txt", "r") as f:
-    install_requires = [line.strip() for line in f if line.strip() and not line.startswith("#")]
-
 setup(
     name=PKG_NAME,
     version=__version__,
@@ -25,7 +21,13 @@ setup(
     license="MIT",
     package_dir={"": "src"},
     packages=find_packages(where="src"),
-    install_requires=install_requires,
+    install_requires=[
+        'pymongo[srv]',
+        'dnspython',
+        'pandas',
+        'numpy',
+        'ensure',
+    ],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
