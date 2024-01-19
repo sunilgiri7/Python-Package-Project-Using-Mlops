@@ -1,17 +1,4 @@
 from setuptools import find_packages, setup
-from typing import List
-
-HYPHEN_E_DOT = '-e.'
-
-def get_requirement(file_path: str) -> List[str]:
-    requirements = []
-    with open(file_path, 'r') as f:
-        requirements = f.readlines()
-        requirements = [req.strip() for req in requirements]
-        if HYPHEN_E_DOT in requirements:
-            requirements.remove(HYPHEN_E_DOT)
-    return requirements
-
 
 with open("README.md", 'r', encoding='utf-8') as f:
     long_description = f.read()
@@ -21,6 +8,10 @@ REPO_NAME = "mongodbconnectorpkg"
 PKG_NAME = "Mongo-Connect"
 AUTHOR_USERNAME = "sunilgiri"
 AUTHOR_EMAIL = 'seungiri841@gmail.com'
+
+# Read requirements from requirements_dev.txt
+with open("requirements_dev.txt", "r") as f:
+    install_requires = [line.strip() for line in f if line.strip() and not line.startswith("#")]
 
 setup(
     name=PKG_NAME,
@@ -37,5 +28,5 @@ setup(
     license="MIT",
     package_dir={"": "src"},
     packages=find_packages(where="src"),
-    install_requires=get_requirement("requirements_dev.txt"),
+    install_requires=install_requires,
 )
